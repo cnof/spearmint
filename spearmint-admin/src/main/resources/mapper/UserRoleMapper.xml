@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spearmint.admin.mapper.UserRoleMapper">
+
+    <select id="listRoleIdsByUserId" resultType="java.lang.String" parameterType="java.lang.String">
+        SELECT
+          role_id
+        FROM
+          admin_user_role
+        WHERE user_id = #{userId}
+    </select>
+
+    <select id="listUserIdByRoleId" resultType="java.lang.String" parameterType="java.lang.String">
+        SELECT
+          user_id
+        FROM
+          admin_user_role
+        <where>
+            <if test="roleId != null and roleId.trim() != ''">
+                AND role_id = #{roleId}
+            </if>
+        </where>
+    </select>
+
+    <delete id="removeByUserId" parameterType="java.lang.String">
+        DELETE FROM admin_user_role WHERE user_id = #{userId}
+    </delete>
+
+    <delete id="removeByRoleId" parameterType="java.lang.String">
+        DELETE FROM admin_user_role WHERE role_id = #{roleId}
+    </delete>
+
+    <delete id="batchRemoveByUserIds">
+        DELETE FROM admin_user_role
+        <foreach collection="array" item="userId" index="index" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </delete>
+
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spearmint.admin.mapper.RoleMenuMapper">
+
+    <select id="listMenuIdsByRoleId" resultType="java.lang.String">
+        SELECT
+          menu_id
+        FROM
+          admin_role_menu
+        <where>
+            <if test="roleId != null and roleId.trim() != ''">
+                and role_id = #{roleId}
+            </if>
+        </where>
+    </select>
+
+    <select id="listMenuIdsByRoleIds" resultType="java.lang.String">
+        SELECT
+            menu_id
+        FROM
+            admin_role_menu
+        WHERE role_id IN
+        <foreach collection="roleIds" item="roleId" index="index" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>
+
+    <delete id="removeByRoleId" parameterType="java.lang.String">
+        DELETE FROM admin_role_menu WHERE role_id = #{roleId}
+    </delete>
+</mapper>
