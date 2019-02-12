@@ -30,8 +30,8 @@ public class UserDO extends CommonEntity implements Serializable {
 
     private String code;
 
-    @ApiModelProperty(name = "account", value = "登录账户", required = true)
-    private String account;
+    @ApiModelProperty(name = "username", value = "登录账户", required = true)
+    private String username;
 
     private String password;
 

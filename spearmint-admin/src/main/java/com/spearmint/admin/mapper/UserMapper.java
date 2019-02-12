@@ -11,4 +11,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserMapper extends Mapper<UserDO> {
+
+    /**
+     * find by user name
+     * @param userName user name
+     * @return user
+     */
+    UserDO findByUsername(String userName);
 }

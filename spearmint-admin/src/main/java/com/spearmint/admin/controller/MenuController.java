@@ -4,10 +4,7 @@ import com.spearmint.admin.domain.MenuDO;
 import com.spearmint.admin.service.MenuService;
 import com.spearmint.framework.model.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author 33992
@@ -24,27 +21,27 @@ public class MenuController {
         this.menuService = menuService;
     }
 
-    @RequestMapping(value = "/select", produces = {"application/json;charset=UTF-8"}, method = RequestMethod.GET)
+    @GetMapping(value = "/select", produces = {"application/json;charset=UTF-8"})
     public ApiResponse selectById(String menuId) {
         return ApiResponse.success(menuId);
     }
 
-    @RequestMapping(value = "/insert", consumes = "application/json", produces = {"application/json;charset=UTF-8"}, method = RequestMethod.POST)
+    @PostMapping(value = "/insert", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
     public ApiResponse insert(@RequestBody MenuDO menu) {
         return ApiResponse.success(menuService.insertSelective(menu));
     }
 
-    @RequestMapping(value = "/update", consumes = "application/json", produces = {"application/json;charset=UTF-8"}, method = RequestMethod.POST)
+    @PostMapping(value = "/update", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
     public ApiResponse update(@RequestBody MenuDO menu) {
         return ApiResponse.success(menuService.updateSelective(menu));
     }
 
-    @RequestMapping(value = "/delete", produces = {"application/json;charset=UTF-8"}, method = RequestMethod.GET)
+    @GetMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
     public ApiResponse delete(String menuIds) {
         return ApiResponse.success(menuService.removeByIds(menuIds));
     }
 
-    @RequestMapping(value = "/nav", produces = {"application/json;charset=UTF-8"}, method = RequestMethod.GET)
+    @GetMapping(value = "/nav", produces = {"application/json;charset=UTF-8"})
     public ApiResponse navMenu() {
         return ApiResponse.success();
     }

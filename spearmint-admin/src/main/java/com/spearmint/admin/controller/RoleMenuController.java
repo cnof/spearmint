@@ -5,10 +5,7 @@ import com.spearmint.admin.service.RoleMenuService;
 import com.spearmint.admin.vo.RoleMenuVO;
 import com.spearmint.framework.model.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author 33992
@@ -25,17 +22,17 @@ public class RoleMenuController {
         this.roleMenuService = roleMenuService;
     }
 
-    @RequestMapping(value = "/insert", consumes = "application/json", produces = {"application/json;charset=UTF-8"}, method = RequestMethod.POST)
+    @PostMapping(value = "/insert", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
     public ApiResponse insert(@RequestBody RoleMenuVO roleHasMenus) {
         return ApiResponse.success(roleMenuService.addRoleHasMenus(roleHasMenus));
     }
 
-    @RequestMapping(value = "/update", consumes = "application/json", produces = {"application/json;charset=UTF-8"}, method = RequestMethod.POST)
+    @PostMapping(value = "/update", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
     public ApiResponse update(@RequestBody RoleMenuDO roleMenu) {
         return ApiResponse.success(roleMenuService.updateSelective(roleMenu));
     }
 
-    @RequestMapping(value = "/delete", produces = {"application/json;charset=UTF-8"}, method = RequestMethod.GET)
+    @GetMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
     public ApiResponse delete(String roleMenuIds) {
         return ApiResponse.success(roleMenuService.removeByIds(roleMenuIds));
     }
