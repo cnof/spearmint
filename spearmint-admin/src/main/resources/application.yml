@@ -17,3 +17,13 @@ mybatis-plus:
 logging:
   level:
     com.spearmint.admin: debug
+jwt:
+  header: Authorization
+  secret: dk-like-syc
+  expiration: 604800
+  tokenHead: "Bearer "
+  route:
+    authentication:
+      path: auth
+      refresh: refresh
+      register: "auth/register"

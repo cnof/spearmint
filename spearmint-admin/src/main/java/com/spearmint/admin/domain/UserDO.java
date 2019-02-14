@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author 33992
@@ -34,6 +35,8 @@ public class UserDO extends CommonEntity implements Serializable {
     private String username;
 
     private String password;
+
+    private Date lastPasswordResetDate;
 
     private String secretKey;
 

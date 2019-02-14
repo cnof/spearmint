@@ -5,6 +5,7 @@ import com.spearmint.framework.jwt.JwtUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,7 @@ public class JwtUserFactory {
         return new JwtUser(
                 user.getUsername(),
                 user.getPassword(),
+                new Date(),
                 mapToGrantedAuthorities(roles)
         );
     }

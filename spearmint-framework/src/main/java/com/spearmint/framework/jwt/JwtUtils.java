@@ -15,11 +15,11 @@ public class JwtUtils {
 
     private JwtUtils() {}
 
-    public static String generateToken(Map<String, Object> claims) {
+    public static String generateToken(Map<String, Object> claims, String secret, Date expirationDate) {
         return Jwts.builder()
                 .setClaims(claims)
-                .setExpiration(new Date())
-                .signWith(SignatureAlgorithm.HS256, "123456")
+                .setExpiration(expirationDate)
+                .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
 
