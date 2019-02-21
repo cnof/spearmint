@@ -2,6 +2,8 @@ package com.spearmint.admin.security.service;
 
 import com.spearmint.admin.domain.UserDO;
 import com.spearmint.admin.mapper.UserMapper;
+import com.spearmint.admin.security.JwtUserFactory;
+import com.spearmint.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,9 +19,12 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
     private final UserMapper userMapper;
 
+    private final UserService userService;
+
     @Autowired
-    public JwtUserDetailsServiceImpl(UserMapper userMapper) {
+    public JwtUserDetailsServiceImpl(UserMapper userMapper, UserService userService) {
         this.userMapper = userMapper;
+        this.userService = userService;
     }
 
     @Override
@@ -29,6 +34,6 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         }
-        return null;
+        return JwtUserFactory.create(user, userService.userHasRoles(user.getUserId()));
     }
 }

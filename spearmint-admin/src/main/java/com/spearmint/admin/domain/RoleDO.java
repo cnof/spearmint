@@ -21,5 +21,7 @@ public class RoleDO extends CommonEntity implements Serializable {
     @TableId(value = "role_id", type = IdType.UUID)
     private String roleId;
 
+    private String roleCode;
+
     private String roleName;
 }

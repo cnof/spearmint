@@ -2,6 +2,7 @@ package com.spearmint.admin.mapper;
 
 import com.spearmint.admin.domain.UserDO;
 import com.spearmint.framework.mybatis.mapper.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,8 +15,8 @@ public interface UserMapper extends Mapper<UserDO> {
 
     /**
      * find by user name
-     * @param userName user name
+     * @param username user name
      * @return user
      */
-    UserDO findByUsername(String userName);
+    UserDO findByUsername(@Param("username") String username);
 }

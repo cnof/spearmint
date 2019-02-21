@@ -1,7 +1,6 @@
 package com.spearmint.admin.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.spearmint.framework.mybatis.pojo.CommonEntity;
@@ -11,7 +10,6 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author 33992
@@ -51,7 +49,4 @@ public class UserDO extends CommonEntity implements Serializable {
     private Integer enabled;
 
     private String remark;
-
-    @TableField(exist = false)
-    private List<RoleDO> roles;
 }
