@@ -1,7 +1,9 @@
 package com.spearmint.framework.excel;
 
 import com.spearmint.framework.excel.writer.Exporter;
+import com.spearmint.framework.excel.writer.FileExcelWriter;
 
+import java.io.File;
 import java.util.Collection;
 
 /**
@@ -19,6 +21,10 @@ public class Bloom {
     private <T> Bloom export(Exporter<T> exporter) {
         this.exporter = exporter;
         return this;
+    }
+
+    public void writeAsFile(File file) {
+        new FileExcelWriter(file).export(exporter);
     }
 
     public static Bloom bloom() {

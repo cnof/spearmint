@@ -1,6 +1,5 @@
 package com.spearmint.framework.excel.model;
 
-import com.spearmint.framework.excel.annotation.Special;
 import com.spearmint.framework.excel.converter.Converter;
 import lombok.Data;
 
@@ -13,6 +12,8 @@ import java.io.Serializable;
 @Data
 public class ExcelFieldResult implements Serializable {
 
+    private String field;
+
     private Integer columnOrder;
 
     private String columnName;
@@ -20,6 +21,4 @@ public class ExcelFieldResult implements Serializable {
     private String datePattern;
 
     private Class<? extends Converter> convertType;
-
-    private Special special;
 }

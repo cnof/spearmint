@@ -22,7 +22,7 @@ public class ExcelUtils {
 
     public static String getSheetName(Object item) {
         Excel excel = item.getClass().getAnnotation(Excel.class);
-        if (StringUtils.isBlank(excel.sheetName())) {
+        if (excel == null || StringUtils.isBlank(excel.sheetName())) {
             return Constant.SHEET_ZERO;
         }
         return excel.sheetName();
