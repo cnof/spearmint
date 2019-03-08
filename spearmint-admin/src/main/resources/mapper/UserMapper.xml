@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spearmint.admin.mapper.UserMapper">
 
-    <select id="findByUsername" resultType="com.spearmint.admin.domain.UserDO">
+    <select id="findByUsername" resultType="com.spearmint.admin.domain.User">
       SELECT
           user_id,
           username,

@@ -1,6 +1,6 @@
 package com.spearmint.admin.service;
 
-import com.spearmint.admin.domain.UserDO;
+import com.spearmint.admin.domain.User;
 
 /**
  * @author 33992
@@ -13,7 +13,7 @@ public interface AuthService {
      * @param userToAdd user
      * @return user
      */
-    UserDO register(UserDO userToAdd);
+    User register(User userToAdd);
 
     /**
      * login

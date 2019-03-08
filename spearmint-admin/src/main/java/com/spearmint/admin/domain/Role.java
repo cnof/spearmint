@@ -3,9 +3,7 @@ package com.spearmint.admin.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.spearmint.framework.mybatis.pojo.CommonEntity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
@@ -15,8 +13,7 @@ import java.io.Serializable;
  */
 @Data
 @TableName("admin_role")
-@EqualsAndHashCode(callSuper = true)
-public class RoleDO extends CommonEntity implements Serializable {
+public class Role implements Serializable {
 
     @TableId(value = "role_id", type = IdType.UUID)
     private String roleId;

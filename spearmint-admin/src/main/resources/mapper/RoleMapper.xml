@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spearmint.admin.mapper.RoleMapper">
 
-    <select id="listRolesByRoleIds" resultType="com.spearmint.admin.domain.RoleDO">
+    <select id="listRolesByRoleIds" resultType="com.spearmint.admin.domain.Role">
         SELECT role_id, role_name FROM admin_role WHERE role_id IN
         <foreach collection="roleIds" item="roleId" index="index" open="(" separator="," close=")">
             #{roleId}

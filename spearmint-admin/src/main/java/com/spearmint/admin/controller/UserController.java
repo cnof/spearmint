@@ -1,6 +1,6 @@
 package com.spearmint.admin.controller;
 
-import com.spearmint.admin.domain.UserDO;
+import com.spearmint.admin.domain.User;
 import com.spearmint.admin.service.UserService;
 import com.spearmint.framework.model.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,18 +27,18 @@ public class UserController {
     }
 
     @PostMapping(value = "/insert", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
-    public ApiResponse insert(@RequestBody UserDO user) {
-        return ApiResponse.success(userService.insertSelective(user));
+    public ApiResponse insert(@RequestBody User user) {
+        return ApiResponse.success();
     }
 
     @PostMapping(value = "/update", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
-    public ApiResponse update(@RequestBody UserDO user) {
-        return ApiResponse.success(userService.updateSelective(user));
+    public ApiResponse update(@RequestBody User user) {
+        return ApiResponse.success();
     }
 
     @GetMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
     public ApiResponse delete(String userIds) {
-        return ApiResponse.success(userService.removeByIds(userIds));
+        return ApiResponse.success();
     }
 
     @GetMapping(value = "/user-has-roles", produces = {"application/json;charset=UTF-8"})

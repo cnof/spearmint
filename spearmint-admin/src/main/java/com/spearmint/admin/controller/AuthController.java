@@ -1,6 +1,6 @@
 package com.spearmint.admin.controller;
 
-import com.spearmint.admin.domain.UserDO;
+import com.spearmint.admin.domain.User;
 import com.spearmint.admin.service.AuthService;
 import com.spearmint.framework.model.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +43,7 @@ public class AuthController {
     }
 
     @PostMapping(value = "/auth/register", consumes = "application/json")
-    public ApiResponse register(@RequestBody UserDO addedUser) {
+    public ApiResponse register(@RequestBody User addedUser) {
         return ApiResponse.success(authService.register(addedUser));
     }
 }

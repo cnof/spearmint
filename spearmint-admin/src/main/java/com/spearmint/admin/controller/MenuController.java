@@ -1,6 +1,6 @@
 package com.spearmint.admin.controller;
 
-import com.spearmint.admin.domain.MenuDO;
+import com.spearmint.admin.domain.Menu;
 import com.spearmint.admin.service.MenuService;
 import com.spearmint.framework.model.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,18 +27,18 @@ public class MenuController {
     }
 
     @PostMapping(value = "/insert", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
-    public ApiResponse insert(@RequestBody MenuDO menu) {
-        return ApiResponse.success(menuService.insertSelective(menu));
+    public ApiResponse insert(@RequestBody Menu menu) {
+        return ApiResponse.success();
     }
 
     @PostMapping(value = "/update", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
-    public ApiResponse update(@RequestBody MenuDO menu) {
-        return ApiResponse.success(menuService.updateSelective(menu));
+    public ApiResponse update(@RequestBody Menu menu) {
+        return ApiResponse.success();
     }
 
     @GetMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
     public ApiResponse delete(String menuIds) {
-        return ApiResponse.success(menuService.removeByIds(menuIds));
+        return ApiResponse.success();
     }
 
     @GetMapping(value = "/nav", produces = {"application/json;charset=UTF-8"})

@@ -1,7 +1,6 @@
 package com.spearmint.admin.mapper;
 
-import com.spearmint.admin.domain.MenuDO;
-import com.spearmint.framework.mybatis.mapper.Mapper;
+import com.spearmint.admin.domain.Menu;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -12,12 +11,12 @@ import java.util.List;
  * @date 2018/12/1 19:40
  */
 @Repository
-public interface MenuMapper extends Mapper<MenuDO> {
+public interface MenuMapper {
 
     /**
      * select menus by menuIds
      * @param menuIds primary key
      * @return menus
      */
-    List<MenuDO> listMenusByMenuIds(@Param("menuIds") List<String> menuIds);
+    List<Menu> listMenusByMenuIds(@Param("menuIds") List<String> menuIds);
 }

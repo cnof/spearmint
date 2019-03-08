@@ -1,11 +1,9 @@
 package com.spearmint.admin.service.impl;
 
-import com.spearmint.admin.domain.MenuDO;
-import com.spearmint.admin.domain.RoleDO;
-import com.spearmint.admin.domain.UserDO;
+import com.spearmint.admin.domain.Menu;
+import com.spearmint.admin.domain.Role;
 import com.spearmint.admin.mapper.*;
 import com.spearmint.admin.service.UserService;
-import com.spearmint.framework.mybatis.service.impl.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +15,7 @@ import java.util.List;
  * @date 2018/12/12 16:06
  */
 @Service
-public class UserServiceImpl extends BaseServiceImpl<UserMapper, UserDO> implements UserService {
+public class UserServiceImpl implements UserService {
 
     private final RoleMenuMapper roleMenuMapper;
 
@@ -36,7 +34,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, UserDO> impleme
     }
 
     @Override
-    public List<RoleDO> userHasRoles(String userId) {
+    public List<Role> userHasRoles(String userId) {
         List<String> roleIds = userRoleMapper.listRoleIdsByUserId(userId);
         if (roleIds.isEmpty()) {
             return new ArrayList<>();
@@ -45,7 +43,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, UserDO> impleme
     }
 
     @Override
-    public List<MenuDO> userHasMenus(String userId) {
+    public List<Menu> userHasMenus(String userId) {
         List<String> roleIds = userRoleMapper.listRoleIdsByUserId(userId);
         if (roleIds.isEmpty()) {
             return new ArrayList<>();

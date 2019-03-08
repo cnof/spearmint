@@ -1,7 +1,7 @@
 package com.spearmint.admin.security;
 
-import com.spearmint.admin.domain.RoleDO;
-import com.spearmint.admin.domain.UserDO;
+import com.spearmint.admin.domain.Role;
+import com.spearmint.admin.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -16,7 +16,7 @@ public final class JwtUserFactory {
     private JwtUserFactory() {
     }
 
-    public static JwtUser create(UserDO user, List<RoleDO> roles) {
+    public static JwtUser create(User user, List<Role> roles) {
         return new JwtUser(
                 user.getUserId(),
                 user.getUsername(),
@@ -27,7 +27,7 @@ public final class JwtUserFactory {
         );
     }
 
-    private static List<GrantedAuthority> mapToGrantedAuthorities(List<RoleDO> authorities) {
+    private static List<GrantedAuthority> mapToGrantedAuthorities(List<Role> authorities) {
         return authorities.stream()
                 .map(authority -> new SimpleGrantedAuthority(authority.getRoleName()))
                 .collect(Collectors.toList());

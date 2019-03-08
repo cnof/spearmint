@@ -3,10 +3,8 @@ package com.spearmint.admin.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.spearmint.framework.mybatis.pojo.CommonEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
@@ -16,8 +14,7 @@ import java.io.Serializable;
  */
 @Data
 @TableName("admin_menu")
-@EqualsAndHashCode(callSuper = true)
-public class MenuDO extends CommonEntity implements Serializable {
+public class Menu implements Serializable {
 
     @TableId(value = "menu_id", type = IdType.UUID)
     private String menuId;

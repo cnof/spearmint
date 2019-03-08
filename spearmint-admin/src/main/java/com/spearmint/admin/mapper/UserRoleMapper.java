@@ -1,7 +1,5 @@
 package com.spearmint.admin.mapper;
 
-import com.spearmint.admin.domain.UserRoleDO;
-import com.spearmint.framework.mybatis.mapper.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,7 +9,7 @@ import java.util.List;
  * @date 2018/12/1 18:42
  */
 @Repository
-public interface UserRoleMapper extends Mapper<UserRoleDO> {
+public interface UserRoleMapper {
 
     /**
      * 根据用户编码查询角色编码

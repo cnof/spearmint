@@ -1,7 +1,5 @@
 package com.spearmint.admin.mapper;
 
-import com.spearmint.admin.domain.RoleMenuDO;
-import com.spearmint.framework.mybatis.mapper.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +10,7 @@ import java.util.List;
  * @date 2018/12/1 19:50
  */
 @Repository
-public interface RoleMenuMapper extends Mapper<RoleMenuDO> {
+public interface RoleMenuMapper {
 
     /**
      * 查询角色所拥有的菜单权限

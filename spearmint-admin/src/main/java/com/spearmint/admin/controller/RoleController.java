@@ -1,6 +1,6 @@
 package com.spearmint.admin.controller;
 
-import com.spearmint.admin.domain.RoleDO;
+import com.spearmint.admin.domain.Role;
 import com.spearmint.admin.service.MenuService;
 import com.spearmint.admin.service.RoleService;
 import com.spearmint.framework.model.ApiResponse;
@@ -31,18 +31,18 @@ public class RoleController {
     }
 
     @PostMapping(value = "/insert", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
-    public ApiResponse insert(@RequestBody RoleDO role) {
-        return ApiResponse.success(roleService.insertSelective(role));
+    public ApiResponse insert(@RequestBody Role role) {
+        return ApiResponse.success();
     }
 
     @GetMapping(value = "/update", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
-    public ApiResponse update(@RequestBody RoleDO role) {
-        return ApiResponse.success(roleService.updateSelective(role));
+    public ApiResponse update(@RequestBody Role role) {
+        return ApiResponse.success();
     }
 
     @GetMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
     public ApiResponse delete(String roleIds) {
-        return ApiResponse.success(roleService.removeByIds(roleIds));
+        return ApiResponse.success();
     }
 
     @GetMapping(value = "/role-has-menus", produces = {"application/json;charset=UTF-8"})

@@ -1,6 +1,6 @@
 package com.spearmint.admin.controller;
 
-import com.spearmint.admin.domain.RoleMenuDO;
+import com.spearmint.admin.domain.RoleMenu;
 import com.spearmint.admin.service.RoleMenuService;
 import com.spearmint.admin.vo.RoleMenuVO;
 import com.spearmint.framework.model.ApiResponse;
@@ -28,12 +28,12 @@ public class RoleMenuController {
     }
 
     @PostMapping(value = "/update", consumes = "application/json", produces = {"application/json;charset=UTF-8"})
-    public ApiResponse update(@RequestBody RoleMenuDO roleMenu) {
-        return ApiResponse.success(roleMenuService.updateSelective(roleMenu));
+    public ApiResponse update(@RequestBody RoleMenu roleMenu) {
+        return ApiResponse.success();
     }
 
     @GetMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
     public ApiResponse delete(String roleMenuIds) {
-        return ApiResponse.success(roleMenuService.removeByIds(roleMenuIds));
+        return ApiResponse.success();
     }
 }

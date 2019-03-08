@@ -1,6 +1,6 @@
 package com.spearmint.admin.service.impl;
 
-import com.spearmint.admin.domain.UserDO;
+import com.spearmint.admin.domain.User;
 import com.spearmint.admin.security.JwtTokenUtil;
 import com.spearmint.admin.security.JwtUser;
 import com.spearmint.admin.service.AuthService;
@@ -37,8 +37,7 @@ public class AuthServiceImpl implements AuthService {
     private String tokenHead;
 
     @Override
-    public UserDO register(UserDO userToAdd) {
-        userService.insertSelective(userToAdd);
+    public User register(User userToAdd) {
         return userToAdd;
     }
 
