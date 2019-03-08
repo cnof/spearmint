@@ -1,8 +1,5 @@
 package com.spearmint.admin.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -14,10 +11,8 @@ import java.util.Date;
  * @date 2018/12/2 20:33
  */
 @Data
-@TableName("admin_user")
 public class User implements Serializable {
 
-    @TableId(value = "user_id", type = IdType.UUID)
     private String userId;
 
     @ApiModelProperty(name = "username", value = "登录账户", required = true)

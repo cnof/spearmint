@@ -1,8 +1,5 @@
 package com.spearmint.admin.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -13,10 +10,8 @@ import java.io.Serializable;
  * @date 2018/12/1 19:37
  */
 @Data
-@TableName("admin_menu")
 public class Menu implements Serializable {
 
-    @TableId(value = "menu_id", type = IdType.UUID)
     private String menuId;
 
     @ApiModelProperty(name = "parentId", value = "父菜单ID,如果菜单为顶级菜单值为0", required = true)
